@@ -384,6 +384,7 @@ class ManageOrgUsers extends React.Component {
                               </td>
                               <td>
                                 <a
+                                className={`btn btn-${user.status === 'archived' ? 'success' : 'danger'}`}
                                   onClick={() => {
                                     user.status === 'archived'
                                       ? this.unarchiveOrgUser(user.id)
