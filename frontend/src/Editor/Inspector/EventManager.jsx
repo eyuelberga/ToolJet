@@ -24,6 +24,8 @@ export const EventManager = ({
     return { name: action.name, value: action.id };
   });
 
+  const actionLookup = Object.fromEntries(ActionTypes.map((actionType) => [actionType.id, actionType]));
+
   let alertTypes = [
     {
       name: 'Info',
@@ -156,7 +158,7 @@ export const EventManager = ({
             </div>
           </div>
 
-          <div className="hr-text">Action options</div>
+          {actionLookup[event.actionId].options?.length > 0 && <div className="hr-text">Action options</div>}
           <div>
             {event.actionId === 'show-alert' && (
               <>
